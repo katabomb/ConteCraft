@@ -17,7 +17,7 @@
 .controlGroup .btn{min-height:38px}
 @media(max-width:830px){.controlGroup{padding:9px;margin:10px 0}.controlGroup .toolbar,.controlGroup .actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.controlGroup .btn{padding:9px 5px;font-size:12px;min-height:42px}.wrap{padding-bottom:18px}}
 .castPicker{margin-top:12px}.castChecks{display:flex;flex-wrap:wrap;gap:7px}.castChecks label{display:inline-flex;align-items:center;gap:5px;padding:7px 10px;background:#f3f5ef;border:1px solid #d7ded4;border-radius:9px;font-size:14px}.castChecks input{width:18px;height:18px;accent-color:#1e5145}
-</style></head><body><header><div><h1>🎭 八幡浜ショート劇場</h1><small>カードを組み立てて，ちょっと変なコメディをつくろう</small></div><span class="tag">試作 v0.9 / AI不使用</span></header><main class="wrap"><p class="intro">まず上の作品を見よう → 下のカードで自分の脚本を作ろう → URLや画像で共有．舞台は現代の八幡浜．</p><div class="layout"><section class="panel shelf" id="shelf"><div class="panelHead"><div class="shelfTitle"><h2>カードの棚</h2><button class="btn secondary" id="closeShelf">閉じる ×</button></div><div class="muted">「どうして踊った？」のように，決められた結末までの空欄を工夫して遊ぼう．</div></div><div class="tabs" id="tabs"></div><div class="pad" style="padding-bottom:0"><input class="search" id="search" placeholder="カードの言葉を検索"></div><div class="palette" id="palette"></div></section><section class="panel editorPanel"><div class="panelHead"><h2>脚本を組み立てる</h2><div class="muted">カードを ≡ でドラッグ，または ↑ ↓ で並べ替えられます．</div></div><div class="pad"><div class="topPreview" id="topPreview"><div class="previewTop"><strong>🎭 作品プレビュー</strong><span>あなたも下のカードから作品を作ろう！</span></div><div class="preview" id="preview"></div></div><div class="nameFields"><label class="label">タイトル：［登場人物］が［場所］で［出来事］</label><div class="titleParts"><select class="field" id="titleActor" aria-label="タイトルの登場人物"></select><select class="field" id="titlePlace" aria-label="タイトルの場所"></select><input class="field" id="titleEvent" maxlength="55" placeholder="出来事（例：大騒ぎ）" value="大騒ぎ"></div><input type="hidden" id="title"><div class="castPicker"><label class="label">登場人物（5名から選択・ナレーターは常時利用可能）</label><div id="castChecks" class="castChecks"></div><p class="muted">チェックした人物のセリフとト書きが棚に表示されます．ナレーターはいつでも選べます．</p></div></div><div class="stats"><span id="count">0 枚</span><span id="chars">自由入力 0 字</span><span id="urlSize">共有URL - 字</span><span id="remaining" aria-live="polite">残り - 字</span></div><div class="meter" role="progressbar" aria-label="共有URLの長さ"><span id="meter" style="width:0%"></span></div><div class="limitHint">共有URLの目安上限は3,500文字（端末やSNSにより異なります）</div><section class="controlGroup" aria-label="カードの追加と削除"><h3>カードの追加・削除</h3><div class="muted" style="margin-bottom:8px">自由なセリフ・ト書き・ナレーションも「カードを探す・追加」から選べます．本文の直接編集はできません．</div><div class="toolbar"><button class="btn secondary" id="openShelf">＋ カードを探す・追加</button><button class="btn danger" id="clear">全部消す</button></div></section><div class="cards" id="cards"></div><section class="controlGroup" aria-label="作品の出力と共有"><h3>作品の出力・共有</h3><div class="actions"><button class="btn" id="shareLink">🔗 URLをコピー</button><button class="btn" id="png">🖼 PNG画像を保存</button><button class="btn secondary" id="shareNative">共有する</button><button class="btn neutral" id="textCopy">文章をコピー</button></div></section><p class="notice" id="message">画像にはアプリ名を添えます．作品へのリンクは別途コピーして共有できます．</p></div></section></div><p class="notice" style="margin:16px 4px">※ この試作は作品をサーバーに保存しません．URLに情報を入れるため，文章が長いと共有できない場合があります．カードIDや保存形式は将来の版で変更される可能性があります．</p></main><script>
+</style></head><body><header><div><h1>🎭 八幡浜ショート劇場</h1><small>カードを組み立てて，ちょっと変なコメディをつくろう</small></div><span class="tag">試作 v1.0 / AI不使用</span></header><main class="wrap"><p class="intro">まず上の作品を見よう → 下のカードで自分の脚本を作ろう → URLや画像で共有．舞台は現代の八幡浜．</p><div class="layout"><section class="panel shelf" id="shelf"><div class="panelHead"><div class="shelfTitle"><h2>カードの棚</h2><button class="btn secondary" id="closeShelf">閉じる ×</button></div><div class="muted">「どうして踊った？」のように，決められた結末までの空欄を工夫して遊ぼう．</div></div><div class="tabs" id="tabs"></div><div class="pad" style="padding-bottom:0"><input class="search" id="search" placeholder="カードの言葉を検索"></div><div class="palette" id="palette"></div></section><section class="panel editorPanel"><div class="panelHead"><h2>脚本を組み立てる</h2><div class="muted">カードを ≡ でドラッグ，または ↑ ↓ で並べ替えられます．</div></div><div class="pad"><div class="topPreview" id="topPreview"><div class="previewTop"><strong>🎭 作品プレビュー</strong><span>あなたも下のカードから作品を作ろう！</span></div><div class="preview" id="preview"></div></div><div class="nameFields"><label class="label">タイトル：［登場人物］が［場所］で［出来事］</label><div class="titleParts"><select class="field" id="titleActor" aria-label="タイトルの登場人物"></select><select class="field" id="titlePlace" aria-label="タイトルの場所"></select><input class="field" id="titleEvent" maxlength="55" placeholder="出来事（例：大騒ぎ）" value="大騒ぎ"></div><input type="hidden" id="title"><div class="castPicker"><label class="label">登場人物（5名から選択・ナレーターは常時利用可能）</label><div id="castChecks" class="castChecks"></div><p class="muted">チェックした人物のセリフとト書きが棚に表示されます．ナレーターはいつでも選べます．</p></div></div><div class="stats"><span id="count">0 枚</span><span id="chars">自由入力 0 字</span><span id="urlSize">共有URL - 字</span><span id="remaining" aria-live="polite">残り - 字</span></div><div class="meter" role="progressbar" aria-label="共有URLの長さ"><span id="meter" style="width:0%"></span></div><div class="limitHint">共有URLの目安上限は3,500文字（端末やSNSにより異なります）</div><section class="controlGroup" aria-label="カードの追加と削除"><h3>カードの追加・削除</h3><div class="muted" style="margin-bottom:8px">自由なセリフ・ト書き・ナレーションも「カードを探す・追加」から選べます．本文の直接編集はできません．</div><div class="toolbar"><button class="btn secondary" id="openShelf">＋ カードを探す・追加</button><button class="btn danger" id="clear">全部消す</button></div></section><div class="cards" id="cards"></div><section class="controlGroup" aria-label="作品の出力と共有"><h3>作品の出力・共有</h3><div class="actions"><button class="btn" id="shareLink">🔗 URLをコピー</button><button class="btn" id="png">🖼 PNG画像を保存</button><button class="btn secondary" id="shareNative">共有する</button><button class="btn neutral" id="textCopy">文章をコピー</button></div></section><p class="notice" id="message">画像にはアプリ名を添えます．作品へのリンクは別途コピーして共有できます．</p></div></section></div><p class="notice" style="margin:16px 4px">※ この試作は作品をサーバーに保存しません．URLに情報を入れるため，文章が長いと共有できない場合があります．カードIDや保存形式は将来の版で変更される可能性があります．</p></main><script>
 'use strict';
 const defs=[
  ['opening','舞台','朝の港','（八幡浜港．朝．フェリーが汽笛を鳴らす）'],['opening','舞台','みかん畑','（八幡浜の段々畑．遠くに海が見える）'],['opening','舞台','どーや市場','（どーや市場．魚がずらりと並んでいる）'],['opening','舞台','商店街','（八幡浜の商店街．昼下がり）'],['opening','舞台','夜の港','（八幡浜港．夜．一隻の船が出航を待っている）'],
@@ -28,12 +28,12 @@ const defs=[
  ['end','オチ','ギャフン','{hero}「……ギャフン！」'],['end','オチ','知らんがな','{partner}「知らんがな！」'],['end','オチ','ダッフンダ','{hero}「ダッフンダ！」'],['end','オチ','このへんで','{hero}「今日はこのくらいにしといたるわ！」'],['end','オチ','無言','（一同，黙り込む）'],
 ].map((d,i)=>({id:'c'+i,kind:d[0],category:d[1],name:d[2],text:d[3]}));
 const cast=[
- {id:'kikuchi',name:'キクチ',role:'怒りっぽい常識人・ツッコミ'},
- {id:'inoue',name:'イノウエ',role:'自信満々の変人・暴走'},
- {id:'ninomiya',name:'ニノミヤ',role:'偉そうな策士・計算高い'},
- {id:'yamamoto',name:'ヤマモト',role:'マイペースな人物（仮設定）'},
- {id:'hamapon',name:'はまぽん',role:'八幡浜のゆるキャラ'},
- {id:'narrator',name:'ナレーター',role:'背景説明・時間経過・場面転換'}
+ {id:'kikuchi',emoji:'😠',name:'きくち',role:'怒りっぽい常識人・ツッコミ'},
+ {id:'inoue',emoji:'😎',name:'いのうえ',role:'自信満々の変人・暴走'},
+ {id:'ninomiya',emoji:'👑',name:'にのみや',role:'偉そうな策士・計算高い'},
+ {id:'yamamoto',emoji:'🙂',name:'やまもと',role:'マイペースな人物（仮設定）'},
+ {id:'hamapon',emoji:'🫅',name:'はまぽん',role:'八幡浜のゆるキャラ'},
+ {id:'narrator',emoji:'🎙️',name:'ナレーター',role:'背景説明・時間経過・場面転換'}
 ];
 const characterTemplates={
  kikuchi:[['ちょっと待て','「ちょっと待て！ 話がおかしいやろ！」'],['なんでや','「なんでそうなるんぞ！」'],['常識やろ','「普通はそうせんやろ！」'],['深いため息','（腕を組み，深いため息をつく）'],['こめかみ','（こめかみを押さえる）']],
@@ -44,7 +44,7 @@ const characterTemplates={
  narrator:[['そのころ','そのころ，八幡浜では重大な事件が起きていた．'],['それから','それから{blank}が過ぎた．'],['誰も知らない','しかし，誰も{blank}とは知らなかった．'],['始まり','すべては{blank}から始まった．'],['ところが','ところが，話はこれで終わらなかった．'],['運命','こうして{blank}の運命が決まった．']]
 };
 const castEnabled=new Set(['kikuchi','inoue','ninomiya','yamamoto','hamapon']);
-function castText(id){return cast.find(x=>x.id===id)?.name||'キクチ'}
+function castText(id){return cast.find(x=>x.id===id)?.name||'きくち'}
 const titleCast=cast.filter(c=>c.id!=='narrator');
 function syncCastUI(){
  $('castChecks').innerHTML=titleCast.map(c=>`<label title="${esc(c.role)}"><input type="checkbox" value="${c.id}" ${castEnabled.has(c.id)?'checked':''}>${esc(c.name)}</label>`).join('');
@@ -74,43 +74,43 @@ cast.forEach(c=>defs.push({id:'eat-'+c.id,kind:'action',category:'食べ物',nam
  {id:'stage-point',kind:'action',category:'ト書き',name:'指さす',text:'（{blank}は市場の隅を指さした）'}
 ].forEach(d=>defs.push(d));
 // 起動時の八幡浜版SFコメディ．すべて既存エンジンの固定カード／穴埋めカードで構成する．
-// 配役：イノウエ＝暴走，キクチ＝ツッコミ，ニノミヤ＝策略，ヤマモト＝のんびりした皮肉．
+// 配役：いのうえ＝暴走，きくち＝ツッコミ，にのみや＝策略，やまもと＝のんびりした皮肉．
 // 既存URLとの互換性のため旧サンプル専用カードは保持するが，カード棚からは隠す．
 const legacySampleCards=[
  ['s01','幕間','第一幕','【第一幕】'],
  ['s02','ナレーター','八幡浜の危機','ナレーター：ある日，八幡浜に未曽有の危機が迫っていた．'],
- ['s03','イノウエ','宇宙人を呼ぼう','イノウエ「もう八幡浜は終わりよ．宇宙人に助けてもらおうわい！」'],
- ['s04','ト書き','無線機','（イノウエは魚市場の無線機で宇宙に呼びかけた）'],
+ ['s03','いのうえ','宇宙人を呼ぼう','いのうえ「もう八幡浜は終わりよ．宇宙人に助けてもらおうわい！」'],
+ ['s04','ト書き','無線機','（いのうえは魚市場の無線機で宇宙に呼びかけた）'],
  ['s05','ナレーター','宇宙からの返事','ナレーター：すると，無線機から返事が聞こえてきた．'],
  ['s06','ト書き','宇宙の通信','（無線機から声がする．「こちら宇宙．今から侵略に向かいます」）'],
- ['s07','イノウエ','来てくれる','イノウエ「来てくれるんやと！ わしの作戦，大成功じゃ！」'],
+ ['s07','いのうえ','来てくれる','いのうえ「来てくれるんやと！ わしの作戦，大成功じゃ！」'],
  ['s08','幕間','第二幕','【第二幕】'],
- ['s09','ヤマモト','乗っ取られる','ヤマモト「宇宙人が八幡浜を乗っ取るらしいぞ．まあ，そんなこともあるわい」'],
- ['s10','キクチ','誰が呼んだ','キクチ「ちょっと待て！ そもそも誰が呼んだんぞ？」'],
- ['s11','ニノミヤ','実は連絡','ニノミヤ「実は私，宇宙人と連絡取りよるんよ．八幡浜を宇宙一のみかん産地にする計画よ！」'],
- ['s12','キクチ','八幡浜を売った','キクチ「お前，八幡浜を売ったんか！ 話がおかしいやろ！」'],
+ ['s09','やまもと','乗っ取られる','やまもと「宇宙人が八幡浜を乗っ取るらしいぞ．まあ，そんなこともあるわい」'],
+ ['s10','きくち','誰が呼んだ','きくち「ちょっと待て！ そもそも誰が呼んだんぞ？」'],
+ ['s11','にのみや','実は連絡','にのみや「実は私，宇宙人と連絡取りよるんよ．八幡浜を宇宙一のみかん産地にする計画よ！」'],
+ ['s12','きくち','八幡浜を売った','きくち「お前，八幡浜を売ったんか！ 話がおかしいやろ！」'],
  ['s13','幕間','第三幕','【第三幕】'],
  ['s14','ナレーター','宇宙人から通信','ナレーター：そのとき，宇宙人から再び通信が入った．'],
  ['s15','ト書き','宇宙人の宣告','（無線機から冷たい声が響く．「八幡浜人よ．お前たちは虫けらだ」）'],
  ['s16','ト書き','絶望','（一同，絶望する）'],
- ['s17','ト書き','市場の隅','（ヤマモトは市場の隅を指さした）'],
- ['s18','ヤマモト','あのハエ','ヤマモト「見てみい．あのハエ，何ぼ追い払っても戻ってくるやろ？」'],
- ['s19','イノウエ','負けない','イノウエ「なるほど！ わしらも何度でも立ち上がるいうことじゃな！」'],
- ['s20','ヤマモト','掃除せえ','ヤマモト「いや，市場の掃除をちゃんとせえいうことよ」'],
- ['s21','キクチ','ツッコミ','キクチ「今それを言う話か！」']
+ ['s17','ト書き','市場の隅','（やまもとは市場の隅を指さした）'],
+ ['s18','やまもと','あのハエ','やまもと「見てみい．あのハエ，何ぼ追い払っても戻ってくるやろ？」'],
+ ['s19','いのうえ','負けない','いのうえ「なるほど！ わしらも何度でも立ち上がるいうことじゃな！」'],
+ ['s20','やまもと','掃除せえ','やまもと「いや，市場の掃除をちゃんとせえいうことよ」'],
+ ['s21','きくち','ツッコミ','きくち「今それを言う話か！」']
 ];
 for (const [id,category,name,text] of legacySampleCards) defs.push({id,kind:category==='ナレーター'?'narration':category==='ト書き'?'action':category==='幕間'?'opening':'speech',category,name,text,legacy:true});
 // 新サンプルはすべて既存のカードか，汎用性のある穴埋めカードのインスタンス．
 // 脚本の文章はカード本文を直接書き換えず，各カードの穴埋め文字列として保持する．
 const sampleCards=[
  ['c2',''],                                  // どーや市場の導入
- ['free-narration','イノウエは，八幡浜が自分たちの力だけではもう良くならないと思い込んでいた．'],
+ ['free-narration','いのうえは，八幡浜が自分たちの力だけではもう良くならないと思い込んでいた．'],
  ['free-speech-inoue','いっそ町の外の人に助けてもらおう．広く呼びかけたら，誰かが応えてくれるはずよ！'],
- ['free-stage','イノウエは魚市場の業務用無線機を勝手に改造し，出力を上げて助けを求めた．'],
+ ['free-stage','いのうえは魚市場の業務用無線機を勝手に改造し，出力を上げて助けを求めた．'],
  ['narr-signal','はるか遠い宇宙の，高度な知能を持つ文明'],
  ['free-narration','地球からの微弱な電波を聞き分けた彼らは，親切にも指導者を派遣することにした．'],
  ['narr-contact','宇宙'],
- ['free-speech-hamapon','地球の八幡浜よ．未熟な君たちの指導者になってあげるぽん！'],
+ ['free-speech-hamapon','地球の八幡浜よ．未熟な君たちの指導者になってあげる'],
  ['free-speech-inoue','来てくれるんやと！ わしのおかげじゃ！'],
  ['person-hamapon-0',''],                  // 「はまぽん．」
  ['free-narration','数日後，宇宙から来た指導者が姿を現した．どう見ても，はまぽんだった．'],
@@ -120,9 +120,9 @@ const sampleCards=[
  ['person-ninomiya-0',''],                 // 計画通り
  ['free-speech-kikuchi','ちょっと待て！ いつの間に代表になったんぞ！'],
  ['narr-contact','はまぽん'],
- ['free-speech-hamapon','八幡浜人は，私たちから見れば虫けら同然だぽん．'],
+ ['free-speech-hamapon','八幡浜人は，私たちから見れば虫けら同然だ'],
  ['stage-reaction','絶望する'],
- ['stage-point','ヤマモト'],
+ ['stage-point','やまもと'],
  ['free-speech-yamamoto','あのハエ，何ぼ追い払ってもまた戻ってくるやろ？'],
  ['free-speech-inoue','そうか！ わしらもあのハエみたいに，何度でも立ち上がるんじゃな！'],
  ['free-speech-yamamoto','いや，市場の掃除をちゃんとせえいうことよ．'],
@@ -133,9 +133,22 @@ const categories=['すべて','舞台','登場人物','ト書き','ナレータ�
 const utf8=s=>new TextEncoder().encode(s);function encode(s){let a=utf8(s),str='';for(let b of a)str+=String.fromCharCode(b);return btoa(str).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')}function decode(s){let raw=atob(s.replace(/-/g,'+').replace(/_/g,'/'));return new TextDecoder().decode(Uint8Array.from(raw,c=>c.charCodeAt(0)))}
 function titleText(){let actor=castText($('titleActor').value);let place=places[Number($('titlePlace').value)]?.[1]||'港';return actor+'が'+place+'で'+($('titleEvent').value||'大騒ぎ')}
 function refreshTitle(){ $('title').value=titleText() }
-function settings(){refreshTitle();return {t:titleText(),a:$('titleActor').value,l:Number($('titlePlace').value),e:$('titleEvent').value,h:'ハチ',p:'魚屋のゲンさん',cast:[...castEnabled],c:items.map(x=>[x.id,x.fill||'',x.custom||''])}}function link(){return location.href.split('#')[0]+'#s='+encode(JSON.stringify({v:1,...settings()}))}function display(raw,it){return raw.replaceAll('{hero}','ハチ').replaceAll('{partner}','魚屋のゲンさん').replaceAll('{blank}',it?.fill||'＿＿＿').replaceAll('{food}',it?.fill||'みかん')};function plain(){refreshTitle();return '『'+titleText()+'』\n\n'+items.map(x=>display(x.custom!==undefined?x.custom:defs.find(d=>d.id===x.id)?.text||'',x).replace(/\n（幕）/g,'').replace(/（幕）/g,'')).filter(Boolean).join('\n\n')+'\n\n（幕）'}
-function newItem(d){document.getElementById('shelf').classList.remove('isOpen');if(items.length>=36){msg('カードは最大36枚です．',true);return}items.push({id:d.id,fill:d.id.startsWith('eat-')?'みかん':''});render()}function selectCat(c){category=c;renderPalette()};function renderPalette(){ $('tabs').innerHTML=categories.map(c=>`<button class="${c===category?'active':''}" data-cat="${esc(c)}">${esc(c)}</button>`).join('');document.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>selectCat(b.dataset.cat));const q=$('search').value.trim();$('palette').innerHTML=defs.filter(d=>!d.legacy&&(category==='すべて'||category===d.category||(category==='登場人物'&&titleCast.some(c=>c.name===d.category)))&&(!d.castId||castEnabled.has(d.castId))&&!['ハチ','相手役'].includes(d.category)&&!['eat-hero','eat-partner'].includes(d.id)&&(!q||(d.name+d.text).includes(q))).map(d=>`<div class="template"><b>${esc(d.name)} <span class="muted">／ ${esc(d.category)}</span></b><p>${esc(display(d.text,{fill:'［自由入力］'}))}</p><button data-add="${d.id}">＋ このカードを使う</button></div>`).join('')||'<p class="muted">見つかりませんでした．</p>';document.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>newItem(defs.find(d=>d.id===b.dataset.add)))}
-function cardText(x){return x.custom!==undefined?x.custom:defs.find(d=>d.id===x.id)?.text||''}function render(){const c=$('cards');c.innerHTML=items.length?items.map((x,i)=>{let d=defs.find(z=>z.id===x.id);let raw=cardText(x);let slotType=raw.includes('{food}')?'food':raw.includes('{blank}')?'blank':null;let slotToken=slotType===''?null:slotType==='food'?'{food}':'{blank}';let before=slotToken?raw.split(slotToken)[0]:raw;let after=slotToken?raw.split(slotToken).slice(1).join(slotToken):'';return `<div class="scene ${x.custom!==undefined?'custom':d?.kind==='speech'?'speech':d?.kind==='end'?'end':''}" data-index="${i}" draggable="false"><div class="sceneTitle"><span>${esc(x.custom!==undefined?'自由入力':d?.name||'カード')}</span><div class="sceneOps"><button class="iconBtn" data-op="up" data-i="${i}" title="上へ">↑</button><button class="iconBtn" data-op="down" data-i="${i}" title="下へ">↓</button><span class="handle" role="button" tabindex="0" aria-label="つかんで上下に並べ替え" title="つかんで上下に移動">☰</span><button class="iconBtn" data-op="duplicate" data-i="${i}" title="複製">⧉</button><button class="iconBtn" data-op="del" data-i="${i}" title="削除">×</button></div></div><div class="sceneBody">${esc(display(before,x))}${slotType?`<span class="slot">${slotType==='food'?`<select class="fill" data-i="${i}" aria-label="食べ物">${foods.map(f=>`<option value="${esc(f)}" ${f===(x.fill||'みかん')?'selected':''}>${esc(f)}</option>`).join('')}</select>`:`<input class="fill" data-i="${i}" aria-label="穴埋め" placeholder="${d?.free?'ここに文章を入力':'ここを自由に埋める'}" value="${esc(x.fill||'')}">`}</span>${esc(display(after,x))}`:''}</div></div>`}).join(''):'<div class="empty">カードはまだありません．<br>左の棚からカードを選んでみよう．</div>';
+function settings(){refreshTitle();return {t:titleText(),a:$('titleActor').value,l:Number($('titlePlace').value),e:$('titleEvent').value,h:'ハチ',p:'魚屋のゲンさん',cast:[...castEnabled],c:items.map(x=>[x.id,x.fill||'',x.custom||''])}}function link(){return location.href.split('#')[0]+'#s='+encode(JSON.stringify({v:1,...settings()}))}function speakerStyle(raw,it){
+ let text=raw.replaceAll('キクチ','きくち').replaceAll('イノウエ','いのうえ').replaceAll('ニノミヤ','にのみや').replaceAll('ヤマモト','やまもと');
+ // Free hamapon dialogue: append ぽん before terminal punctuation unless already present.
+ if(it?.id==='free-speech-hamapon')text=text.replace(/(はまぽん「)([^」]*)(」)/g,(_,a,body,z)=>{
+  let core=body.replace(/([．。！!？?\s]+)$/u,'');let tail=body.slice(core.length);
+  return a+core+(/ぽん$/u.test(core)?'':'ぽん')+tail+z;
+ });
+ // Only decorate at the start of dialogue lines, never arbitrary mentions within text.
+ for(const c of cast.filter(x=>x.id!=='narrator')){
+  text=text.replace(new RegExp('(^|\\n)'+c.name+'(?=「)','g'),(_,start)=>start+c.name+c.emoji);
+ }
+ return text.replace(/(^|\n)ナレーター：(?!🎙️)/g,'$1ナレーター🎙️：');
+}
+function display(raw,it){let text=raw.replaceAll('{hero}','ハチ').replaceAll('{partner}','魚屋のゲンさん').replaceAll('{blank}',it?.fill||'＿＿＿').replaceAll('{food}',it?.fill||'みかん');return speakerStyle(text,it)};function plain(){refreshTitle();return '『'+titleText()+'』\n\n'+items.map(x=>display(x.custom!==undefined?x.custom:defs.find(d=>d.id===x.id)?.text||'',x).replace(/\n（幕）/g,'').replace(/（幕）/g,'')).filter(Boolean).join('\n\n')+'\n\n（幕）'}
+function newItem(d){document.getElementById('shelf').classList.remove('isOpen');if(items.length>=36){msg('カードは最大36枚です．',true);return}items.push({id:d.id,fill:d.id.startsWith('eat-')?'みかん':''});render()}function selectCat(c){category=c;renderPalette()};function renderPalette(){ $('tabs').innerHTML=categories.map(c=>`<button class="${c===category?'active':''}" data-cat="${esc(c)}">${esc(c)}</button>`).join('');document.querySelectorAll('[data-cat]').forEach(b=>b.onclick=()=>selectCat(b.dataset.cat));const q=$('search').value.trim();$('palette').innerHTML=defs.filter(d=>!d.legacy&&(category==='すべて'||category===d.category||(category==='登場人物'&&titleCast.some(c=>c.name===d.category)))&&(!d.castId||castEnabled.has(d.castId))&&!['ハチ','相手役'].includes(d.category)&&!['eat-hero','eat-partner'].includes(d.id)&&(!q||(d.name+d.text).includes(q))).map(d=>`<div class="template"><b>${esc(d.name)} <span class="muted">／ ${esc(d.category)}</span></b><p>${esc(display(d.text,{id:d.id,fill:'［自由入力］'}))}</p><button data-add="${d.id}">＋ このカードを使う</button></div>`).join('')||'<p class="muted">見つかりませんでした．</p>';document.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>newItem(defs.find(d=>d.id===b.dataset.add)))}
+function cardText(x){return x.custom!==undefined?x.custom:defs.find(d=>d.id===x.id)?.text||''}function render(){const c=$('cards');c.innerHTML=items.length?items.map((x,i)=>{let d=defs.find(z=>z.id===x.id);let raw=cardText(x);let slotType=raw.includes('{food}')?'food':raw.includes('{blank}')?'blank':null;let slotToken=slotType===''?null:slotType==='food'?'{food}':'{blank}';let before=slotToken?raw.split(slotToken)[0]:raw;let after=slotToken?raw.split(slotToken).slice(1).join(slotToken):'';if(x.id==='free-speech-hamapon'&&slotType==='blank')after='ぽん'+after;return `<div class="scene ${x.custom!==undefined?'custom':d?.kind==='speech'?'speech':d?.kind==='end'?'end':''}" data-index="${i}" draggable="false"><div class="sceneTitle"><span>${esc(x.custom!==undefined?'自由入力':d?.name||'カード')}</span><div class="sceneOps"><button class="iconBtn" data-op="up" data-i="${i}" title="上へ">↑</button><button class="iconBtn" data-op="down" data-i="${i}" title="下へ">↓</button><span class="handle" role="button" tabindex="0" aria-label="つかんで上下に並べ替え" title="つかんで上下に移動">☰</span><button class="iconBtn" data-op="duplicate" data-i="${i}" title="複製">⧉</button><button class="iconBtn" data-op="del" data-i="${i}" title="削除">×</button></div></div><div class="sceneBody">${esc(display(before,x))}${slotType?`<span class="slot">${slotType==='food'?`<select class="fill" data-i="${i}" aria-label="食べ物">${foods.map(f=>`<option value="${esc(f)}" ${f===(x.fill||'みかん')?'selected':''}>${esc(f)}</option>`).join('')}</select>`:`<input class="fill" data-i="${i}" aria-label="穴埋め" placeholder="${d?.free?'ここに文章を入力':'ここを自由に埋める'}" value="${esc(x.fill||'')}">`}</span>${esc(display(x.id==='free-speech-hamapon'&&/ぽん[．。！!？?\s]*$/u.test(x.fill||'')?after.replace(/^ぽん/,''):after,x))}`:''}</div></div>`}).join(''):'<div class="empty">カードはまだありません．<br>左の棚からカードを選んでみよう．</div>';
  c.querySelectorAll('[data-op]').forEach(b=>b.onclick=()=>operate(b.dataset.op,Number(b.dataset.i)));c.querySelectorAll('.fill').forEach(input=>{input.oninput=()=>{items[+input.dataset.i].fill=input.value;updateStats()};input.onchange=()=>{items[+input.dataset.i].fill=input.value;updateStats()}});c.querySelectorAll('.handle').forEach(h=>{h.addEventListener('mousedown',()=>{h.closest('.scene').draggable=true});h.addEventListener('mouseup',()=>{h.closest('.scene').draggable=false})});c.querySelectorAll('.scene').forEach(el=>{el.addEventListener('dragstart',e=>{dragIndex=+el.dataset.index;el.classList.add('dragging');e.dataTransfer.effectAllowed='move'});el.addEventListener('dragover',e=>{e.preventDefault();el.classList.add('over')});el.addEventListener('dragleave',()=>el.classList.remove('over'));el.addEventListener('drop',e=>{e.preventDefault();reorder(dragIndex,+el.dataset.index)});el.addEventListener('dragend',()=>{el.draggable=false;dragIndex=-1;render()})});installTouch();updateStats()}
 let dragIndex=-1;function reorder(a,b){if(a<0||a>=items.length||b<0||b>=items.length||a===b)return;items.splice(b,0,items.splice(a,1)[0]);render()};function operate(op,i){if(op==='del')items.splice(i,1);if(op==='up')return reorder(i,i-1);if(op==='down')return reorder(i,i+1);if(op==='duplicate'&&items.length<36)items.splice(i+1,0,{...items[i]});render()}
 function installTouch(){let start=null;document.querySelectorAll('.handle').forEach(handle=>{handle.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse')return;const el=handle.closest('.scene');start={id:e.pointerId,index:+el.dataset.index,y:e.clientY};handle.setPointerCapture(e.pointerId);el.style.opacity='.65'});handle.addEventListener('pointerup',e=>{if(!start)return;const target=document.elementFromPoint(e.clientX,e.clientY)?.closest('.scene');const from=start.index;start=null;if(target)reorder(from,+target.dataset.index);else render()});handle.addEventListener('pointercancel',()=>{start=null;render()})})}
