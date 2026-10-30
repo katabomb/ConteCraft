@@ -159,7 +159,7 @@ const sampleCards=[
   "助けを頼んだのに，侵略されるんか！"
  ],
  [
-  "lighting-blackout",
+  "lighting-blackout-lightsup",
   ""
  ],
  [
@@ -219,7 +219,7 @@ const sampleCards=[
   "時間がない！ 何とかして止めるのよ！"
  ],
  [
-  "lighting-blackout",
+  "lighting-blackout-lightsup",
   ""
  ],
  [
@@ -396,7 +396,7 @@ if(definition && (definition.category==='舞台' || definition.category==='照�
   return '（'+t+'）';
  }).join('\n');
 }
-return speakerStyle(text,it)};function plain(){refreshTitle();return '『'+titleText()+'』\n\n'+items.map(x=>display(x.custom!==undefined?x.custom:defs.find(d=>d.id===x.id)?.text||'',x).replace(/\n（幕）/g,'').replace(/（幕）/g,'').replace(/\n(?:[ \t]*\n)*/g,'\n\n')).filter(Boolean).join('\n\n')+'\n\n（幕）'}
+return speakerStyle(text,it)};function plain(){refreshTitle();return '『'+titleText()+'』\n\n'+items.map(x=>display(x.custom!==undefined?x.custom:defs.find(d=>d.id===x.id)?.text||'',x).replace(/\n（幕）/g,'').replace(/（幕）/g,'').replace(/\n(?:[ \t]*\n)*/g,'\n\n').replace(x.id==='lighting-blackout-lightsup'?/（暗転）\n\n（明転）/g:/(?!)/g,x.id==='lighting-blackout-lightsup'?'（暗転）\n\n\n\n（明転）':'' )).filter(Boolean).join('\n\n')+'\n\n（幕）'}
 let insertAfterIndex=null;
 function openCardShelf(after=null){insertAfterIndex=after;const shelf=$('shelf');shelf.classList.toggle('insertMode',after!==null);shelf.classList.add('isOpen');if(window.innerWidth>830)shelf.scrollIntoView({behavior:'smooth',block:'start'});}
 function closeCardShelf(){const shelf=$('shelf');shelf.classList.remove('isOpen','insertMode');insertAfterIndex=null;}
